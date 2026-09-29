@@ -1,0 +1,16 @@
+{
+  "result_point": [],
+  "extra_info": [
+    {
+      "varname": "dataStatus",
+      "timestamp": "2026-11-25 05:00:00",
+      "value": "incomplete"
+    },
+    {
+      "varname": "missingPoints",
+      "timestamp": "2026-11-25 05:00:00",
+      "value": "GARD_11MBY0100000BJ01XQ01"
+    }
+  ],
+  "event_key": "JNH.Fluxcast.Compute"
+}

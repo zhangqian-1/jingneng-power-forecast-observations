@@ -1,0 +1,22 @@
+{
+  "result_point": [
+    {
+      "varname": "totalPowerActual",
+      "timestamp": "2026-11-25 05:00:00",
+      "value": 1795.0
+    }
+  ],
+  "extra_info": [
+    {
+      "varname": "dataStatus",
+      "timestamp": "2026-11-25 05:00:00",
+      "value": "complete"
+    },
+    {
+      "varname": "reason",
+      "timestamp": "2026-11-25 05:00:00",
+      "value": "no_matching_forecast"
+    }
+  ],
+  "event_key": "JNH.Fluxcast.Compute"
+}
