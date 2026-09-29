@@ -142,7 +142,7 @@ docker load -i jingneng-power-forecast.tar
 
 ### A.2 导入配套镜像包
 
-从 [公开下载仓库Releases](https://github.com/zhangqian-1/jingneng-power-forecast-downloads/releases) 获取与交接提交号对应的镜像ZIP及校验文件，或直接接收算法方提供的同一文件。私有 [源码仓库Releases](https://github.com/zhangqian-1/jingneng-power-forecast/releases) 保存构建原件和测试报告，需要仓库访问权限。旧版 `v7station-2025-042dcd1` 不包含新接口，不能代替新版。
+本版源码位于 [功率预测与实测公开仓库](https://github.com/zhangqian-1/jingneng-power-forecast-observations)，配套镜像ZIP、校验文件和测试报告均从 [同一仓库的Releases](https://github.com/zhangqian-1/jingneng-power-forecast-observations/releases) 下载，无需登录。选择与源码提交号及服务器架构对应的 `offline-image-amd64-…zip` 或 `offline-image-arm64-…zip`，也可直接接收算法方提供的同一文件。旧仓库中的镜像不会自动包含新增实测模块，不能代替本版交付。
 
 先按同名 `.zip.sha256` 文件或发布页的 `SHA256SUMS` 核对ZIP的SHA256。Linux使用 `sha256sum -c 校验文件名`；Windows使用 `Get-FileHash -Algorithm SHA256 镜像ZIP文件名`。无需把ZIP重新上传GitHub才能部署，可通过公司文件传输渠道直接交付。
 
@@ -176,7 +176,7 @@ docker load -i image.tar.gz
 
 历史Release绑定源码提交 `042dcd1ccd1dd75f22cf9849a1cfffc14a93802e`，本地接口修改不会改变已发布附件。新交付必须使用新标签及对应源码提交，不覆盖旧版校验文件。Release附件不受Actions制品14天保留期限制。
 
-后续构建：GitHub 推送 `main` 默认构建 AMD64；ARM64 通过 Actions 手动运行 `Build And Test Docker Image`，选择 `architecture=arm64`。通过全部测试后，工作流直接将 `offline-image-…zip`、同名 `.sha256` 和 `container-checks-…zip` 上传至私有仓库的 `v7station-platform-提交号前12位` Release。Release中的架构以实际附件为准；红叉或附件缺失时不得视为交付完成。公开下载仓库由交付人员另行同步镜像及校验文件，不发布私有测试报告。GitHub验证流程不在GitLab自动执行。
+后续构建：GitHub 推送 `main` 默认构建 AMD64；ARM64 通过 Actions 手动运行 `Build And Test Docker Image`，选择 `architecture=arm64`。通过全部测试后，工作流直接将 `offline-image-…zip`、同名 `.sha256` 和 `container-checks-…zip` 上传至当前仓库的 `v7station-platform-提交号前12位` Release，不需要再复制到其他下载仓库。Release中的架构以实际附件为准；红叉或附件缺失时不得视为交付完成。GitHub验证流程不在GitLab自动执行。
 
 复测步骤见 [README](../README.md)，使用独立端口和空缓存实例，历史测试集及样例数据不发送到生产服务。`tests/`、`examples/`、`docs/` 属于交接资料，不进入运行镜像。
 
